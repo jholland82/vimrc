@@ -1,0 +1,92 @@
+" Cross-platform Vim Configuration goes in this file
+"
+" Contents
+" Main configuration
+" Visual Configuration
+" Shortcut Key Configuration
+" Plugin Configuration
+
+" ----------- Main Configuration ----------------------------------
+
+source ~/.vim/keymap.vim
+source ~/.vim/vundle.vim
+
+set shell=/bin/bash
+filetype plugin indent on                "enable detection, plugins and indenting in one step
+syntax on                                "Turn on syntax highlighting
+set nocompatible
+set ruler                                "Turn on the ruler
+set number                               "Show line numbers
+set relativenumber                       "Show the line number relative to the cursor
+set cursorline                           "underline the current line in the file
+set cursorcolumn                         "highlight the current column. Visible in GUI mode only.
+set colorcolumn=121
+set laststatus=2
+set clipboard=unnamed                    "use system clipboard
+set background=dark                      "make vim use colors that look good on a dark background
+set lazyredraw                           "don't redraw everything all the time
+set showcmd                              "show incomplete cmds down the bottom
+set showmode                             "show current mode down the bottom
+set foldenable                           "enable folding
+set foldmethod=syntax
+set showmatch                            "set show matching parenthesis
+set noexrc                               "don't use the local config
+set incsearch                            "find the next match as we type the search
+set hlsearch                             "hilight searches by default
+set ignorecase                           "ignore case when searching
+set shiftwidth=2                         "number of spaces to use in each autoindent step
+set tabstop=2                            "four tab spaces
+"set softtabstop=4                        "number of spaces to skip or insert when <BS>ing or <Tab>ing
+set expandtab                            "spaces instead of tabs for better cross-editor compatibility
+set smarttab                             "use shiftwidth and softtabstop to insert or delete (on <BS>) blanks
+set shiftround                           "when at 3 spaces, and I hit > ... go to 4, not 5
+set nowrap                               "no wrapping
+set backspace=indent,eol,start           "allow backspacing over everything in insert mode
+set cindent                              "recommended seting for automatic C-style indentation
+set autoindent                           "automatic indentation in non-C files
+set copyindent                           "copy the previous indentation on autoindenting
+set noerrorbells                         "don't make noise
+set visualbell
+set wildmenu                             "make tab completion act more like bash
+set wildmode=list:longest                "tab complete to longest common string, like bash
+set wildignore+=*.class,.git,.hg,.svn,test-integration/**,test-unit/**,**/target/**,**/build/**,**/vendor/**,**/node_modules**
+set hidden                               "allow hiding buffers with unsaved changes
+set cmdheight=2                          "make the command line a little taller to hide 'press enter to viem more' text
+set re=1
+set ttyfast
+
+" Turn backup off, since most stuff is in SVN, git anyway...
+set nobackup
+set nowb
+set noswapfile
+
+" ----------- Visual Configuration ----------------------------------
+" set t_Co=256
+set background=dark
+colorscheme solarized
+
+"Remove spaces at the end of lines
+command! RemoveEndSpaces :silent %s/ \+$//g
+
+" JSON hilighting
+au BufRead,BufNewFile *.json set filetype=json
+
+" Stop Vim dying is there's massively long lines
+set synmaxcol=250
+
+" Auto Command to resize VIM
+autocmd VimResized * wincmd =
+
+augroup filetype javascript syntax=javascript
+
+let g:netrw_liststyle=3
+"  let g:vimwiki_listsyms = '✗○◐●✓'
+let g:vimwiki_list = [{'path': '~/Dropbox/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_hl_headers = 1
+let g:vimwiki_folding='list'
+hi VimwikiHeader1 ctermfg=34 guifg=#268bd2 gui=bold
+hi VimwikiHeader2 ctermfg=75 guifg=#dc322f gui=bold
+hi VimwikiHeader3 ctermfg=205 guifg=#268bd2 gui=bold "was 215
+hi VimwikiHeader4 ctermfg=166 guifg=#268bd2 gui=bold
+hi VimwikiHeader5 ctermfg=63 guifg=#268bd2 gui=bold
+hi VimwikiHeader6 ctermfg=105 guifg=#268bd2 gui=bold
