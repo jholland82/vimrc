@@ -27,7 +27,8 @@ imap fd <Esc>:w<CR>
 nmap fd <Esc>:w<CR>
 
 " Supports pasting in from the clipboard
-set pastetoggle=<Leader>p
+nmap <Leader>pp :set paste<CR>
+nmap <Leader>np :set nopaste<CR>
 
 " Turn text search highlight on/off with F5 key
 nnoremap <F3> :set hls!<bar>set hls?<CR>
@@ -38,3 +39,9 @@ map <leader>sp :setlocal spell! spelllang=en_us<CR>
 "vim-rails keymaps
 nmap <Leader>a :A<CR>
 nmap <Leader>av :AV<CR>
+nmap <Leader>so :source ~/.vimrc<CR>
+nmap <Leader>eso :e ~/.vim/vimrc_main<CR>
+nmap <Leader>esv :e ~/.vim/vundle.vim<CR>
+nmap <Leader>esk :e ~/.vim/keymap.vim<CR>
+" map ; :Files<CR>
+nmap <Leader>w<Leader>g :VimwikiDiaryGenerateLinks<CR>

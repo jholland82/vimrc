@@ -12,16 +12,22 @@ Plug 'tpope/vim-surround'
 Plug 'techlivezheng/vim-plugin-minibufexpl'
 Plug 'rking/ag.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'vim-scripts/AutoComplPop'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'slashmili/alchemist.vim'
 Plug 'w0rp/ale'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'vimwiki/vimwiki'
-Plug 'liuchengxu/space-vim-dark'
-Plug 'jceb/vim-orgmode'
 Plug 'ruanyl/vim-gh-line'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+ Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
 
+" Plug 'vim-scripts/AutoComplPop' " 3-21-2019
 "Plug 'roman/golden-ratio'                     " 3-4-2019
 "Plug 'othree/javascript-libraries-syntax.vim'
 "Plug 'JavaScript-Indent'
@@ -57,7 +63,7 @@ hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
 
 let g:airline_powerline_fonts=1
 let g:airline_theme='dark'
-let g:airline_section_x='' "filetype by default
+" let g:airline_section_x='' "filetype by default
 let g:airline_section_y='' "encoding by default
 
 "NERDTree

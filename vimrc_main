@@ -83,10 +83,25 @@ let g:netrw_liststyle=3
 "  let g:vimwiki_listsyms = '✗○◐●✓'
 let g:vimwiki_list = [{'path': '~/Dropbox/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_hl_headers = 1
+let g:vimwiki_hl_cb_checked = 1
 let g:vimwiki_folding='list'
+let g:vimwiki_use_calendar=1
 hi VimwikiHeader1 ctermfg=34 guifg=#268bd2 gui=bold
 hi VimwikiHeader2 ctermfg=75 guifg=#dc322f gui=bold
 hi VimwikiHeader3 ctermfg=205 guifg=#268bd2 gui=bold "was 215
 hi VimwikiHeader4 ctermfg=166 guifg=#268bd2 gui=bold
 hi VimwikiHeader5 ctermfg=63 guifg=#268bd2 gui=bold
 hi VimwikiHeader6 ctermfg=105 guifg=#268bd2 gui=bold
+
+augroup WrapLineInMDFile
+    autocmd!
+    autocmd FileType vimwiki setlocal wrap
+    autocmd FileType vimwiki setlocal linebreak
+augroup END
+
+if has("autocmd")
+  filetype plugin indent on
+endif
+
+autocmd FileType vimwiki
+       \ call deoplete#custom#buffer_option('auto_complete', v:false)
