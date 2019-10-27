@@ -5,6 +5,7 @@ filetype off                   " required!
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
@@ -62,7 +63,7 @@ hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
 hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
 
 let g:airline_powerline_fonts=1
-let g:airline_theme='dark'
+let g:airline_theme='light'
 " let g:airline_section_x='' "filetype by default
 let g:airline_section_y='' "encoding by default
 
